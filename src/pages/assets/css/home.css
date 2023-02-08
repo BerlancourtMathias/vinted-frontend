@@ -1,7 +1,48 @@
+h1 {
+  font-size: 34px;
+  font-weight: 500;
+}
 .banner img {
   object-fit: cover;
   width: 100vw;
   height: 488px;
   min-width: 960px;
   min-height: 100%;
+}
+.homeContainer {
+  position: relative;
+}
+.widgetContainer {
+  display: flex;
+  position: absolute;
+}
+.widgetBlock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 32px;
+  width: 380px;
+  height: 300px;
+
+  position: relative;
+  bottom: 425px;
+  left: 50px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.widgetBlock button {
+  height: 45px;
+  width: 32àpx;
+  font-size: 16px;
+  color: whitesmoke;
+  background-color: #017580;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.widgetBlock > div > span {
+  color: #017580;
+  cursor: pointer;
+  text-decoration: underline;
 }
