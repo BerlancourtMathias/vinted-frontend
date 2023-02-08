@@ -5,6 +5,8 @@
 .headerContainer {
   display: flex;
   justify-content: center;
+  margin-top: 0, 5%;
+  margin-bottom: 0, 5%;
 }
 .alignHeader {
   width: 100vw;
@@ -14,8 +16,9 @@
 
 nav {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
+  gap: 5%;
 }
 nav img {
   height: auto;
@@ -26,6 +29,7 @@ nav img {
   display: flex;
   align-items: center;
   background-color: #f2f2f2;
+  flex: 1;
 }
 .searchBar input {
   width: 100%;
@@ -55,23 +59,23 @@ nav img {
 }
 
 .signInLogIn {
-  border: black solid 1px;
+  border: #017580 solid 2px;
   color: #017580;
   background-color: whitesmoke;
-  height: 28px;
+  height: 35px;
   width: 55%;
   padding: 0 8px;
   line-height: 16px;
   font-weight: bold;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .sellArticles {
   background-color: #017580;
   color: whitesmoke;
-  height: 28px;
+  height: 35px;
   width: 45%;
   padding: 0 8px;
   line-height: 16px;
   font-weight: bold;
-  border-radius: 3px;
+  border-radius: 5px;
 }
