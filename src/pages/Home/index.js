@@ -42,6 +42,7 @@ const Home = ({ offers }) => {
           </div>
         </div>
       </div>
+
       <div className="offerCardContainer">
         {data.offers.map((offer) => {
           // console.log("offers:", offers);
