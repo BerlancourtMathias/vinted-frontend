@@ -9,31 +9,11 @@ import Offer from "./pages/Offer";
 import Spinner from "./Spinner";
 
 const App = () => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          " https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
-        setData(response.data);
-        console.log(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
-  }, []);
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home offers={data.offers} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
       </Routes>
       <Footer />

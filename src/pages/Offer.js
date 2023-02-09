@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const Offer = ({ offers }) => {
+const Offer = () => {
   const { id } = useParams();
   return <div className="offerContainer"></div>;
 };
