@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -39,8 +39,8 @@ const Signup = () => {
       );
       console.log("response axios: ", response);
       const token = response.data.token;
-      console.log("TOKEN :", token);
-      Cookies.set("token", token, { expires: 60 });
+
+      Cookies.set("token_signup", token, { expires: 60 });
     } catch (error) {
       console.log(error.message);
     }
@@ -48,6 +48,7 @@ const Signup = () => {
 
   return (
     <div>
+      <h2>S'inscrire</h2>
       <form label="signUpForm" onSubmit={handleSubmit}>
         <input
           type="text"
