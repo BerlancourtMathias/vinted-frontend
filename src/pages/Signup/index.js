@@ -92,8 +92,8 @@ const Signup = () => {
         <input
           type="submit"
           value="S'inscrire"
-          accessKey="
-          "
+          // accessKey="
+          // "
         />
         <span onClick={() => navigate("/login")}>
           Tu as déjà un compte ? connecte-toi!

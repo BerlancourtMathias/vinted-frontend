@@ -56,8 +56,8 @@ const Login = () => {
         <input
           type="submit"
           value="Se connecter"
-          accessKey="
-          "
+          // accessKey="
+          // "
         />
         <span onClick={() => navigate("/signup")}>
           Pas encore de compte ? inscris-toi!

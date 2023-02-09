@@ -1,7 +1,6 @@
 import logo from "./assets/img/logo.svg";
 import searchLogo from "./assets/img/loupe.png";
 import { useNavigate } from "react-router-dom";
-import Modal from "../Modal/index";
 import "./header.css";
 
 const Header = ({ setVisible, visible }) => {
