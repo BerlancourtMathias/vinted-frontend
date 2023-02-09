@@ -23,6 +23,7 @@ nav {
 nav img {
   height: auto;
   max-width: 100%;
+  cursor: pointer;
 }
 .searchBar {
   width: 400px;
@@ -38,6 +39,7 @@ nav img {
   color: RGBA(var(--greyscale-level-2, 1));
   border-style: none;
   background-color: #f2f2f2;
+  outline: none;
 }
 .searchBar img {
   width: 16px;
@@ -53,21 +55,36 @@ nav img {
 }
 .buttonsContainer {
   display: flex;
-  gap: 1%;
+  gap: 5%;
   font-size: 12px;
   width: 30%;
+  flex: 1;
 }
 
-.signInLogIn {
-  border: #017580 solid 2px;
+.signUpLogIn {
+  display: flex;
+  flex: 1;
+}
+.signUpLogIn button {
   color: #017580;
   background-color: whitesmoke;
   height: 35px;
-  width: 55%;
-  padding: 0 8px;
+  border: solid 2px #017580;
+  /* padding: 0 8px; */
   line-height: 16px;
   font-weight: bold;
   border-radius: 5px;
+}
+#signUp {
+  flex: 1;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right-style: none;
+}
+#logIn {
+  flex: 1;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .sellArticles {
   background-color: #017580;
@@ -78,4 +95,6 @@ nav img {
   line-height: 16px;
   font-weight: bold;
   border-radius: 5px;
+  border-style: none;
+  flex: 0.5;
 }

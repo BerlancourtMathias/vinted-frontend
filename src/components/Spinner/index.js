@@ -1,4 +1,4 @@
-import "./App.css";
+import "./spinner.css";
 const Spinner = () => (
   <div className="spinnerContainer">
     <div className="loader"></div>

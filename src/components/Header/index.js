@@ -1,13 +1,15 @@
 import logo from "./assets/img/logo.svg";
 import searchLogo from "./assets/img/loupe.png";
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="headerContainer">
       <div className="alignHeader">
         <nav>
-          <img src={logo} alt="logo du header" />
+          <img src={logo} alt="logo du header" onClick={() => navigate("/")} />
           <div className="searchBar">
             <img src={searchLogo} alt="loupe" />
             <input
@@ -18,7 +20,12 @@ const Header = () => {
             ></input>
           </div>
           <div className="buttonsContainer">
-            <button className="signInLogIn">S'inscire | Se connecter</button>
+            <div className="signUpLogIn">
+              <button id="signUp" onClick={() => navigate("/signup")}>
+                S'inscire
+              </button>
+              <button id="logIn">Se connecter</button>
+            </div>
             <button className="sellArticles">Vends tes articles</button>
           </div>
         </nav>

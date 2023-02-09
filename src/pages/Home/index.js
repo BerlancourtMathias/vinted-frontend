@@ -1,11 +1,10 @@
 import banner from "./assets/img/banner.jpeg";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Spinner from "../Spinner";
-import OfferCard from "../components/OfferCard";
-import "./assets/css/home.css";
+import Spinner from "../../components/Spinner";
+import OfferCard from "../../components/OfferCard/OfferCard";
+import "./home.css";
 
-import { Link } from "react-router-dom";
 const Home = ({ offers }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +16,7 @@ const Home = ({ offers }) => {
           " https://lereacteur-vinted-api.herokuapp.com/offers"
         );
         setData(response.data);
-        console.log(response.data);
+        console.log("response.data : ", response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -44,7 +43,9 @@ const Home = ({ offers }) => {
         </div>
       </div>
       {data.offers.map((offer) => {
-        <OfferCard offerInfos={offer} key={offer._id} />;
+        // console.log("offers:", offers);
+        // console.log("offer : ", offer);
+        return <OfferCard offerInfos={offer} key={offer._id} />;
       })}
     </div>
   );
