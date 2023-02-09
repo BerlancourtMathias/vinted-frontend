@@ -16,9 +16,10 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          " https://lereacteur-vinted-api.herokuapp.com/"
+          " https://lereacteur-vinted-api.herokuapp.com/offers"
         );
         setData(response.data);
+        console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -32,7 +33,7 @@ const App = () => {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home offers={data.offers} />} />
         <Route path="/offer/:id" element={<Offer />} />
       </Routes>
       <Footer />

@@ -2,7 +2,7 @@ import banner from "./assets/img/banner.jpeg";
 import "./assets/css/home.css";
 
 import { Link } from "react-router-dom";
-const Home = () => {
+const Home = ({ offers }) => {
   return (
     <div className="homeContainer">
       <section className="banner">
@@ -19,6 +19,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {offers.map((offer, index) => {
+        return <div key={index}>{offer.owner.account.username}</div>;
+      })}
     </div>
   );
 };
