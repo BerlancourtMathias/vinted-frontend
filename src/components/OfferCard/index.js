@@ -1,3 +1,4 @@
+import "./offercard.css";
 import { Link } from "react-router-dom";
 const OfferCard = ({ offerInfos }) => {
   return (
@@ -6,12 +7,6 @@ const OfferCard = ({ offerInfos }) => {
         <section className="owner">
           {offerInfos.owner.account.avatar && (
             <img
-              style={{
-                height: 50,
-                width: 50,
-                borderRadius: "50%",
-                objectFit: "cover",
-              }}
               id="ownerProfilePic"
               src={offerInfos.owner.account.avatar.secure_url}
               alt="owner"
@@ -19,16 +14,13 @@ const OfferCard = ({ offerInfos }) => {
           )}
           <div id="ownerUserName">{offerInfos.owner.account.username}</div>
         </section>
-        <div className="offerPicture">
-          <img
-            id="productPicture"
-            src={offerInfos.product_image.secure_url}
-            alt="offer vizualisation"
-          />
-        </div>
-        <div className="productPrice">
-          <p> €</p>
-        </div>
+        <img
+          id="productPicture"
+          src={offerInfos.product_image.secure_url}
+          alt="offer vizualisation"
+        />
+
+        <div className="productPrice">{offerInfos.product_price} €</div>
         <div className="productSize">
           {offerInfos.product_details.map((detail, index) => {
             if (detail.TAILLE) {
@@ -40,7 +32,6 @@ const OfferCard = ({ offerInfos }) => {
             }
           })}
         </div>
-        <div className="productBrand"></div>
       </div>
     </Link>
   );

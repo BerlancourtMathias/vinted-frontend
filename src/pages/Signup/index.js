@@ -47,7 +47,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="signupModal">
       <h2>S'inscrire</h2>
       <form label="signUpForm" onSubmit={handleSubmit}>
         <input
@@ -68,14 +68,15 @@ const Signup = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-        <input
-          type="checkbox"
-          id="newLetter"
-          value={newsletter}
-          onChange={handleNewsletter}
-        />
-        <label htmlFor="newsLetter">S'inscrire à notre newsletter</label>
-
+        <div className="checkingBoxContainer">
+          <input
+            type="checkbox"
+            id="newLetter"
+            value={newsletter}
+            onChange={handleNewsletter}
+          />
+          <label htmlFor="newsLetter">S'inscrire à notre newsletter</label>
+        </div>
         <p id="CGU">
           En vous inscrivant sur Vinted, vous attestez être majeur et
           reconnaissez avoir pris connaissance et acceptez les

@@ -1,0 +1,40 @@
+.offerCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4%;
+  margin: 30px 150px;
+  justify-content: flex-start;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+#ownerUserName {
+  color: #99999999;
+}
+.offerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 200px;
+  height: 440px;
+
+  text-align: start;
+  text-decoration: none;
+}
+
+.owner {
+  display: flex;
+  align-items: center;
+}
+.owner > img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+img[id="productPicture"] {
+  object-fit: cover;
+  height: 300px;
+  width: 200px;
+}

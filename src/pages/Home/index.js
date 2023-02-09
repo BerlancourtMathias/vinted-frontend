@@ -2,7 +2,7 @@ import banner from "./assets/img/banner.jpeg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
-import OfferCard from "../../components/OfferCard/OfferCard";
+import OfferCard from "../../components/OfferCard/";
 import "./home.css";
 
 const Home = ({ offers }) => {
@@ -42,11 +42,13 @@ const Home = ({ offers }) => {
           </div>
         </div>
       </div>
-      {data.offers.map((offer) => {
-        // console.log("offers:", offers);
-        // console.log("offer : ", offer);
-        return <OfferCard offerInfos={offer} key={offer._id} />;
-      })}
+      <div className="offerCardContainer">
+        {data.offers.map((offer) => {
+          // console.log("offers:", offers);
+          // console.log("offer : ", offer);
+          return <OfferCard offerInfos={offer} key={offer._id} />;
+        })}
+      </div>
     </div>
   );
 };

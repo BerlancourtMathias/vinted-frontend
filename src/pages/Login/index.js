@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
+import "./login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,7 +38,7 @@ const Login = () => {
     }
   };
   return (
-    <div>
+    <div className="loginModal">
       <h2>Se connecter</h2>
       <form label="logInForm" onSubmit={handleSubmit}>
         <input
@@ -57,6 +59,9 @@ const Login = () => {
           accessKey="
           "
         />
+        <span onClick={() => navigate("/signup")}>
+          Pas encore de compte ? inscris-toi!
+        </span>
       </form>
     </div>
   );

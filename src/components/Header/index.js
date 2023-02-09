@@ -1,9 +1,10 @@
 import logo from "./assets/img/logo.svg";
 import searchLogo from "./assets/img/loupe.png";
 import { useNavigate } from "react-router-dom";
+import Modal from "../Modal/index";
 import "./header.css";
 
-const Header = () => {
+const Header = ({ setVisible, visible }) => {
   const navigate = useNavigate();
   return (
     <div className="headerContainer">
@@ -27,6 +28,14 @@ const Header = () => {
               <button id="logIn" onClick={() => navigate("/login")}>
                 Se connecter
               </button>
+              {/* <button
+                onClick={() => {
+                  setVisible(!visible); // on inverse la valeur de `visible` à chaque click
+                }}
+              >
+                {visible && <Modal setVisible={setVisible} />}Afficher/Masquer
+                Modal
+              </button> */}
             </div>
             <button className="sellArticles">Vends tes articles</button>
           </div>
