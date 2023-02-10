@@ -2,7 +2,7 @@ import logo from "./assets/img/logo.svg";
 import searchLogo from "./assets/img/loupe.png";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Range } from "react-range";
 
@@ -44,7 +44,7 @@ const Header = ({ setData, setIsLoading }) => {
       }
     };
     fetchData();
-  }, [search, values]);
+  }, [search, values, queryConstruct, setData, setIsLoading]);
 
   console.log("values", values);
   return (
