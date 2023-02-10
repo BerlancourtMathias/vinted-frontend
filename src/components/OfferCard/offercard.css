@@ -2,9 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4%;
-  margin: 30px 0;
-  margin-left: 3%;
-  justify-content: flex-start;
 }
 a {
   color: inherit;

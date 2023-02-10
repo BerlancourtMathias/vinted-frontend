@@ -11,11 +11,30 @@ h1 {
 }
 .homeContainer {
   position: relative;
+  padding-top: 50px;
+}
+.banner {
+  position: relative;
+}
+
+.containerOffer {
+  margin: 30px 50px;
 }
 .widgetContainer {
   display: flex;
   position: absolute;
+
+  bottom: 200px;
+  left: 50px;
 }
+#tears {
+  position: relative;
+  bottom: 150px;
+  height: 8%;
+  z-index: 1;
+  min-height: 146px;
+}
+
 .widgetBlock {
   height: 100%;
   display: flex;
@@ -24,12 +43,12 @@ h1 {
   padding: 32px;
   width: 380px;
   height: 300px;
-
   position: relative;
-  bottom: 425px;
-  left: 50px;
+  /* bottom: 425px;
+  left: 50px; */
   background-color: whitesmoke;
   border-radius: 10px;
+  z-index: 2;
 }
 
 .widgetBlock button {

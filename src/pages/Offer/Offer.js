@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
+import "./offer.css";
 
 const Offer = () => {
   const [data, setData] = useState();
@@ -29,13 +30,13 @@ const Offer = () => {
   ) : (
     <div className="offerContainer">
       <img src={data.product_image.secure_url} alt="product" />
-      <p>{data.product_price}</p>
+      <p>{data.product_price + " €"}</p>
       {data.product_details.map((detail, index) => {
         const key = Object.keys(detail)[0];
         return (
           <div key={index}>
             <span>{key}:</span>
-            <span>{detail[key]}</span>
+            <span style={{ color: "red" }}>{detail[key]}</span>
           </div>
         );
       })}

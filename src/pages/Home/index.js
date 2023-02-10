@@ -1,13 +1,12 @@
 import banner from "./assets/img/banner.jpeg";
+import tears from "./assets/img/tear-d431548c90905ad757632e4c3075d9473e38c7c6642721efeae9413afb9387a2.svg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
 import OfferCard from "../../components/OfferCard/";
 import "./home.css";
 
-const Home = ({ offers }) => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+const Home = ({ data, setData, isLoading, setIsLoading }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,31 +23,39 @@ const Home = ({ offers }) => {
     };
     fetchData();
   }, []);
-  return isLoading ? (
-    <Spinner />
-  ) : (
+
+  return (
     <div className="homeContainer">
       <section className="banner">
-        <img src={banner} alt="bannerHome" />
-      </section>
-      <div className="widgetContainer">
-        <div className="widgetBlock">
-          <h1>Prêts à faire du tri dans vos placards ?</h1>
-          <button id="sellnow" name="sellNow" className="sellNowButoon">
-            Vends maintenant
-          </button>
-          <div>
-            <span>Découvrir comment ça marche</span>
+        <img id="banner" src={banner} alt="bannerHome" />
+
+        {/* <section className="tearsBanner"> */}
+        <img id="tears" src={tears} alt="tears effect on banner" />
+        {/* </section> */}
+        <div className="widgetContainer">
+          <div className="widgetBlock">
+            <h1>Prêts à faire du tri dans vos placards ?</h1>
+            <button id="sellnow" name="sellNow" className="sellNowButoon">
+              Vends maintenant
+            </button>
+            <div>
+              <span>Découvrir comment ça marche</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="offerCardContainer">
-        {data.offers.map((offer) => {
-          // console.log("offers:", offers);
-          // console.log("offer : ", offer);
-          return <OfferCard offerInfos={offer} key={offer._id} />;
-        })}
+      </section>
+      <div className="containerOffer">
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="offerCardContainer">
+            {data.offers.map((offer) => {
+              // console.log("offers:", offers);
+              // console.log("offer : ", offer);
+              return <OfferCard offerInfos={offer} key={offer._id} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

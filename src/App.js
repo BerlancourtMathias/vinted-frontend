@@ -13,13 +13,30 @@ import Login from "./pages/Login";
 
 const App = () => {
   const [visible, setVisible] = useState(false);
-
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <div className="App">
       <Router>
-        <Header visible={visible} setVisible={setVisible} />
+        <Header
+          visible={visible}
+          setVisible={setVisible}
+          data={data}
+          setData={setData}
+          setIsLoading={setIsLoading}
+        />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                data={data}
+                setData={setData}
+                setIsLoading={setIsLoading}
+                isLoading={isLoading}
+              />
+            }
+          />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/offer/:id" element={<Offer />} />
