@@ -5,8 +5,11 @@
 .headerContainer {
   display: flex;
   justify-content: center;
-  margin-top: 0, 5%;
-  margin-bottom: 0, 5%;
+  /* margin-top: 0 5%;
+  margin-bottom: 0 5%; */
+  background-color: whitesmoke;
+  position: fixed;
+  z-index: 1;
 }
 .alignHeader {
   width: 100vw;
@@ -69,7 +72,7 @@ nav img {
   color: #017580;
   background-color: whitesmoke;
   height: 35px;
-  border: solid 2px #017580;
+  border: solid 1px #017580;
   /* padding: 0 8px; */
   line-height: 16px;
   font-weight: bold;
@@ -97,4 +100,7 @@ nav img {
   border-radius: 5px;
   border-style: none;
   flex: 0.5;
+}
+.widgetBlock span:hover {
+  text-decoration: none;
 }

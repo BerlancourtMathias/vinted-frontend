@@ -26,6 +26,8 @@
   color: RGBA(var(--greyscale-level-2, 1));
   border-style: none;
   background-color: #f2f2f2;
+  outline: none;
+  border-bottom: solid 1px orange;
 }
 
 .checkingBoxContainer {
@@ -36,7 +38,9 @@
 .checkingBoxContainer label {
   height: 10px;
   font-size: 10px;
-  width: 40%;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 .signupModal input[type="checkbox"] {
   height: 10px;
@@ -46,9 +50,9 @@
 .signupModal input[type="submit"] {
   background-color: #017580;
   color: whitesmoke;
-  width: 17%;
+  width: 15%;
   padding: 0 8px;
-  height: 13%;
+  height: 8%;
   font-weight: bold;
   border-radius: 5px;
   border-style: none;
@@ -64,8 +68,4 @@
 .signupModal p {
   font-size: 10px;
   text-align: justify;
-}
-
-.signupModal span:hover {
-  text-decoration: none;
 }

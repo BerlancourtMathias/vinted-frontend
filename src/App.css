@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  position: relative;
+}
+.Header {
+  position: absolute;
 }
 
 button {

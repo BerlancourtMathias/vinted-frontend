@@ -5,7 +5,7 @@ h1 {
 .banner img {
   object-fit: cover;
   width: 100vw;
-  height: 488px;
+  height: 528px;
   min-width: 960px;
   min-height: 100%;
 }
@@ -40,6 +40,7 @@ h1 {
   background-color: #017580;
   font-weight: bold;
   border-radius: 10px;
+  border-style: none;
 }
 .widgetBlock > div > span {
   color: #017580;

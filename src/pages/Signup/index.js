@@ -9,7 +9,8 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-
+  //On aurait pu mettre tout ça dans
+  // le oneclick sans faire de fonctions handle
   const handleUsernameChange = (event) => {
     const value = event.target.value;
     setUsername(value);
@@ -71,7 +72,7 @@ const Signup = () => {
         <div className="checkingBoxContainer">
           <input
             type="checkbox"
-            id="newLetter"
+            id="newsLetter"
             value={newsletter}
             onChange={handleNewsletter}
           />

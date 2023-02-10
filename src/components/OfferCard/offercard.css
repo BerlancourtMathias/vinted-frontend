@@ -13,6 +13,9 @@ a {
 #ownerUserName {
   color: #99999999;
 }
+.productSize {
+  color: #99999999;
+}
 .offerCard {
   display: flex;
   flex-direction: column;
