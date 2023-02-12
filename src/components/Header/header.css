@@ -70,6 +70,7 @@ nav img {
 .signUpLogIn {
   display: flex;
   flex: 1;
+  position: relative;
 }
 .signUpLogIn button {
   color: #017580;

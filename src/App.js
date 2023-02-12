@@ -15,6 +15,8 @@ const App = () => {
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="App">
       <Router>
@@ -24,6 +26,8 @@ const App = () => {
           data={data}
           setData={setData}
           setIsLoading={setIsLoading}
+          showModal={showModal}
+          setShowModal={setShowModal}
         />
         <Routes>
           <Route
@@ -38,7 +42,7 @@ const App = () => {
             }
           />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/offer/:id" element={<Offer />} />
         </Routes>
         <Footer />

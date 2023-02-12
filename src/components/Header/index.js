@@ -5,11 +5,13 @@ import "./header.css";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Range } from "react-range";
+import Login from "../../pages/Login";
 
-const Header = ({ setData, setIsLoading }) => {
+const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [values, setValues] = useState([30, 50]);
+
   const handleSearch = (event) => {
     const value = event.target.value;
     setSearch(value);
@@ -130,22 +132,21 @@ const Header = ({ setData, setIsLoading }) => {
               <button id="signUp" onClick={() => navigate("/signup")}>
                 S'inscire
               </button>
-              <button id="logIn" onClick={() => navigate("/login")}>
-                Se connecter
-              </button>
-              {/* <button
+              <button
+                id="logIn"
                 onClick={() => {
-                  setVisible(!visible); // on inverse la valeur de `visible` à chaque click
+                  setShowModal(!showModal);
                 }}
               >
-                {visible && <Modal setVisible={setVisible} />}Afficher/Masquer
-                Modal
-              </button> */}
+                Se connecter
+              </button>
             </div>
             <button className="sellArticles">Vends tes articles</button>
           </div>
         </nav>
       </div>
+      {showModal && <Login showModal={showModal} setShowModal={setShowModal} />}
+      ;
     </div>
   );
 };

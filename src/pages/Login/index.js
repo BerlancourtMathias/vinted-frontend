@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import "./login.css";
 
-const Login = () => {
+const Login = ({ showModal, setShowModal }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +16,9 @@ const Login = () => {
   const handlePasswordChange = (event) => {
     const value = event.target.value;
     setPassword(value);
+  };
+  const handleCloseModal = () => {
+    setShowModal(!showModal);
   };
 
   const handleSubmit = async (event) => {
@@ -38,31 +41,43 @@ const Login = () => {
     }
   };
   return (
-    <div className="loginModal">
-      <h2>Se connecter</h2>
-      <form label="logInForm" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmailchange}
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <input
-          type="submit"
-          value="Se connecter"
-          // accessKey="
-          // "
-        />
-        <span onClick={() => navigate("/signup")}>
-          Pas encore de compte ? inscris-toi!
-        </span>
-      </form>
+    <div>
+      {/* {showModal && ( */}
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <button id="closeModal" onClick={handleCloseModal}>
+            FERMER
+          </button>
+          <div className="loginModal">
+            <h2>Se connecter</h2>
+
+            <form label="logInForm" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailchange}
+              />
+              <input
+                type="password"
+                placeholder="Mot de passe"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+              <input
+                type="submit"
+                value="Se connecter"
+                // accessKey="
+                // "
+              />
+              <span onClick={() => navigate("/signup")}>
+                Pas encore de compte ? inscris-toi!
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+      {/* )} */}
     </div>
   );
 };
