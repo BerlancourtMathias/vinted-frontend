@@ -34,18 +34,14 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            Authorization: token,
+            Authorization: `${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
       );
       console.log("retour response axios :", response);
-    } catch (err) {
-      if (err.response.status === 500) {
-        console.error("An error occured");
-      } else {
-        console.error(err.response.data.msg);
-      }
+    } catch (error) {
+      console.log(error.response);
     }
   };
   return (
