@@ -43,42 +43,39 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
     }
   };
   return (
-    <div>
-      <div className="modal-overlay">
-        <div className="modal-content">
-          <button id="closeModal" onClick={handleCloseModal}>
-            FERMER
-          </button>
-          <div className="loginModal">
-            <h2>Se connecter</h2>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button id="closeModal" onClick={handleCloseModal}>
+          FERMER
+        </button>
+        <div className="loginModal">
+          <h2>Se connecter</h2>
 
-            <form label="logInForm" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={handleEmailchange}
-              />
-              <input
-                type="password"
-                placeholder="Mot de passe"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-              <input
-                type="submit"
-                value="Se connecter"
-                // accessKey="
-                // "
-              />
-              <span onClick={() => navigate("/signup")}>
-                Pas encore de compte ? inscris-toi!
-              </span>
-            </form>
-          </div>
+          <form label="logInForm" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailchange}
+            />
+            <input
+              type="password"
+              placeholder="Mot de passe"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <input
+              type="submit"
+              value="Se connecter"
+              // accessKey="
+              // "
+            />
+            <span onClick={() => navigate("/signup")}>
+              Pas encore de compte ? inscris-toi!
+            </span>
+          </form>
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 };
