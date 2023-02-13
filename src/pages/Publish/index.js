@@ -3,18 +3,19 @@ import { useState } from "react";
 import axios from "axios";
 
 const Publish = ({ token }) => {
-  const [picture, setPicture] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [condition, setCondition] = useState("");
+  const [city, setCity] = useState("");
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [condition, setCondition] = useState("");
-  const [city, setCity] = useState("");
-  const [price, setPrice] = useState("");
-  console.log("le token", token);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [picture, setPicture] = useState("");
+
+  console.log("le token qui en props dans Publish", token);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     const formData = new FormData();
     formData.append("title", title);
@@ -33,11 +34,12 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token,
             "Content-Type": "multipart/form-data",
           },
         }
       );
+      console.log("retour response axios :", response);
     } catch (err) {
       if (err.response.status === 500) {
         console.error("An error occured");
@@ -158,12 +160,11 @@ const Publish = ({ token }) => {
           />
         </label>
         <label>
-          Jes suis intéressé(e) par les échanges
+          Je suis intéressé(e) par les échanges
           <input name="agreeToexchange" type="checkbox" />
         </label>
         <input type="submit" value="Publier" />
       </form>
-      salut je suis la page publish
     </div>
   );
 };

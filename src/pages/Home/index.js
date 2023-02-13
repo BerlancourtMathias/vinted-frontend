@@ -1,6 +1,6 @@
 import banner from "./assets/img/banner.jpeg";
 import tears from "./assets/img/tear-d431548c90905ad757632e4c3075d9473e38c7c6642721efeae9413afb9387a2.svg";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
 import OfferCard from "../../components/OfferCard/";
