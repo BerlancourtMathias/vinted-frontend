@@ -49,129 +49,136 @@ const Header = ({
 
   console.log("values", values);
   return (
-    <div className="headerContainer">
-      <div className="alignHeader">
-        <nav>
-          <img src={logo} alt="logo du header" onClick={() => navigate("/")} />
-          <div className="searchBar">
-            <img src={searchLogo} alt="loupe" />
-            <form>
-              <input
-                id="searchText"
-                name="searchText"
-                type="textarea"
-                placeholder="Recherche des articles"
-                onChange={handleSearch}
-                value={search}
-              />
-            </form>
-            <div className="sliderCointainer" style={{ width: "100%" }}>
-              <Range
-                min={0}
-                max={100}
-                values={values}
-                onChange={(values) => setValues(values)}
-                renderTrack={({ props, children }) => (
-                  <div
-                    {...props}
-                    style={{
-                      ...props.style,
-                      height: "6px",
-                      width: "100%",
-                      backgroundColor: "#017580 ",
-                    }}
-                  >
-                    {children}
-                  </div>
-                )}
-                renderThumb={({ index, props, isDragged }) => (
-                  <div
-                    {...props}
-                    style={{
-                      ...props.style,
-                      height: "42px",
-                      width: "42px",
-                      borderRadius: "4px",
-                      backgroundColor: "#FFF",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      boxShadow: "0px 2px 6px #AAA",
-                    }}
-                  >
+    <>
+      <div className="headerContainer">
+        <div className="alignHeader">
+          <nav>
+            <img
+              src={logo}
+              alt="logo du header"
+              onClick={() => navigate("/")}
+            />
+            <div className="searchBar">
+              <img src={searchLogo} alt="loupe" />
+              <form>
+                <input
+                  id="searchText"
+                  name="searchText"
+                  type="textarea"
+                  placeholder="Recherche des articles"
+                  onChange={handleSearch}
+                  value={search}
+                />
+              </form>
+              <div className="sliderCointainer" style={{ width: "100%" }}>
+                <Range
+                  min={0}
+                  max={100}
+                  values={values}
+                  onChange={(values) => setValues(values)}
+                  renderTrack={({ props, children }) => (
                     <div
-                      className="cursorOne"
+                      {...props}
                       style={{
-                        position: "absolute",
-                        top: "-28px",
-                        color: "#fff",
-                        fontWeight: "bold",
-                        fontSize: "14px",
-                        fontFamily: "Arial,Helvetica Neue,Helvetica,sans-serif",
-                        padding: "4px",
-                        borderRadius: "4px",
-                        backgroundColor: "#548BF4",
+                        ...props.style,
+                        height: "6px",
+                        width: "100%",
+                        backgroundColor: "#017580 ",
                       }}
                     >
-                      {/* <div>{values[index]}</div>
+                      {children}
+                    </div>
+                  )}
+                  renderThumb={({ index, props, isDragged }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: "42px",
+                        width: "42px",
+                        borderRadius: "4px",
+                        backgroundColor: "#FFF",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        boxShadow: "0px 2px 6px #AAA",
+                      }}
+                    >
+                      <div
+                        className="cursorOne"
+                        style={{
+                          position: "absolute",
+                          top: "-28px",
+                          color: "#fff",
+                          fontWeight: "bold",
+                          fontSize: "14px",
+                          fontFamily:
+                            "Arial,Helvetica Neue,Helvetica,sans-serif",
+                          padding: "4px",
+                          borderRadius: "4px",
+                          backgroundColor: "#548BF4",
+                        }}
+                      >
+                        {/* <div>{values[index]}</div>
 
                       {values[index]} */}
-                      {/* ici c'est l'arguement de mon slider une valeur de mon tableau values , si je veux ensuite
+                        {/* ici c'est l'arguement de mon slider une valeur de mon tableau values , si je veux ensuite
                       afficher comme une etiquette sur mon slider, je fais ma div d'affichage en dessous, si je veuc que la valeur 
                        soit sur les curseurs je mets ma div d'affichage après la div cursor two*/}
-                      {values[index]}
+                        {values[index]}
+                        <div>{values[index]}</div>
+                      </div>
+                      <div
+                        className="cursorTwo"
+                        style={{
+                          height: "16px",
+                          width: "5px",
+                          backgroundColor: isDragged ? "#548BF4" : "#CCC",
+                        }}
+                      />
+                      {/* ici je mets ce qui s'affiche sur les cursors */}
                       <div>{values[index]}</div>
                     </div>
-                    <div
-                      className="cursorTwo"
-                      style={{
-                        height: "16px",
-                        width: "5px",
-                        backgroundColor: isDragged ? "#548BF4" : "#CCC",
-                      }}
-                    />
-                    {/* ici je mets ce qui s'affiche sur les cursors */}
-                    <div>{values[index]}</div>
-                  </div>
-                )}
-              />
+                  )}
+                />
+              </div>
             </div>
-          </div>
-          <div className="buttonsContainer">
-            {token ? (
-              <button
-                onClick={() => {
-                  console.log("token avant suppr:", token);
-                  handleToken(null);
-                  console.log("token après suppr:", token);
-                }}
-              >
-                Se déconnecter
-              </button>
-            ) : (
-              <div className="signUpLogIn">
-                <button id="signUp" onClick={() => navigate("/signup")}>
-                  S'inscire
-                </button>
-
+            <div className="buttonsContainer">
+              {token ? (
                 <button
-                  id="logIn"
                   onClick={() => {
-                    setShowModal(!showModal);
+                    console.log("token avant suppr:", token);
+                    handleToken(null);
+                    console.log("token après suppr:", token);
                   }}
                 >
-                  Se connecter
+                  Se déconnecter
                 </button>
-              </div>
-            )}
-            <button
-              className="sellArticles"
-              onClick={() => navigate("/publish")}
-            >
-              Vends tes articles
-            </button>
-          </div>
-        </nav>
+              ) : (
+                <div className="signUpLogIn">
+                  <button id="signUp" onClick={() => navigate("/signup")}>
+                    S'inscire
+                  </button>
+
+                  <button
+                    id="logIn"
+                    onClick={() => {
+                      setShowModal(!showModal);
+                    }}
+                  >
+                    Se connecter
+                  </button>
+                </div>
+              )}
+              <button
+                className="sellArticles"
+                onClick={() => navigate("/publish")}
+              >
+                Vends tes articles
+              </button>
+            </div>
+          </nav>
+        </div>
       </div>
       {showModal && (
         <Login
@@ -180,8 +187,7 @@ const Header = ({
           handleToken={handleToken}
         />
       )}
-      ;
-    </div>
+    </>
   );
 };
 

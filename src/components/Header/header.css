@@ -1,14 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap");
-* {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap%22") * {
   font-family: "Inter", sans-serif;
 }
 .headerContainer {
   display: flex;
   justify-content: center;
-  /* margin-top: 0 5%;
-  margin-bottom: 0 5%; */
+  margin-top: 0 5%;
+  margin-bottom: 0 5%;
   background-color: whitesmoke;
-  position: relative;
   z-index: 10;
   height: 48px;
   position: fixed;
@@ -21,7 +19,7 @@
 
 nav {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   gap: 5%;
 }
@@ -45,7 +43,7 @@ nav img {
   font-size: 16px;
   color: RGBA(var(--greyscale-level-2, 1));
   border-style: none;
-  /* background-color: #f2f2f2; */
+  background-color: #f2f2f2;
 
   outline: none;
 }
@@ -84,7 +82,7 @@ nav img {
   background-color: whitesmoke;
   height: 35px;
   border: solid 1px #017580;
-  /* padding: 0 8px; */
+  padding: 0 8px;
   line-height: 16px;
   font-weight: bold;
   border-radius: 5px;
