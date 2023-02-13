@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import axios from "axios";
 import "./login.css";
 
-const Login = ({ showModal, setShowModal }) => {
+const Login = ({ showModal, setShowModal, handleToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,15 +33,17 @@ const Login = ({ showModal, setShowModal }) => {
       );
       console.log("response axios: ", response);
       const token = response.data.token;
-
-      Cookies.set("token_login", token, { expires: 60 });
+      if (token) {
+        handleToken(token);
+        handleCloseModal();
+        navigate("/");
+      }
     } catch (error) {
       console.log(error.message);
     }
   };
   return (
     <div>
-      {/* {showModal && ( */}
       <div className="modal-overlay">
         <div className="modal-content">
           <button id="closeModal" onClick={handleCloseModal}>

@@ -59,6 +59,11 @@ nav img {
   -webkit-font-smoothing: antialiased;
   background-color: transparent;
 }
+
+.sliderContainer {
+  height: 20px;
+}
+
 .buttonsContainer {
   display: flex;
   gap: 5%;

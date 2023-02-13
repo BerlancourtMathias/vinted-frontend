@@ -2,12 +2,19 @@ import logo from "./assets/img/logo.svg";
 import searchLogo from "./assets/img/loupe.png";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Range } from "react-range";
-import Login from "../../pages/Login";
+import Login from "../Login/index";
 
-const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
+const Header = ({
+  setData,
+
+  showModal,
+  setShowModal,
+  handleToken,
+  token,
+}) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [values, setValues] = useState([30, 50]);
@@ -16,37 +23,29 @@ const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
     const value = event.target.value;
     setSearch(value);
   };
-
-  const queryConstruct = useMemo(() => {
-    let queryString = "https://lereacteur-vinted-api.herokuapp.com/offers?";
-    if (search) {
-      queryString += `title=${search}`;
-    }
-    if (values) {
-      queryString += `&priceMin=${values[0]}&priceMax=${values[1]}`;
-    }
-    return queryString;
-  }, [values, search]);
+  const query = `title=${search}&priceMin=${values[0]}&priceMax=${values[1]}`;
 
   useEffect(() => {
-    setData(search);
     const fetchData = async () => {
       try {
         //je fais une requête axios
-        setIsLoading(true);
-        const response = await axios.get(queryConstruct);
+        // setIsLoading(true);
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?${query}`
+        );
         console.log(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+          "la query :",
+          `https://lereacteur-vinted-api.herokuapp.com/offers?${query}`
         );
         setData(response.data);
-        setIsLoading(false);
+        // setIsLoading(false);
         // console.log("response.data : ", response.data);
       } catch (error) {
         console.log(error.message);
       }
     };
     fetchData();
-  }, [search, values, queryConstruct, setData, setIsLoading]);
+  }, [search, values, query, setData]); //j'ai ajouté query et setData au tab de dépendnace suite à un warning de react
 
   console.log("values", values);
   return (
@@ -66,7 +65,7 @@ const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
                 value={search}
               />
             </form>
-            <div style={{ width: "100%" }}>
+            <div className="sliderCointainer" style={{ width: "100%" }}>
               <Range
                 min={0}
                 max={100}
@@ -101,6 +100,7 @@ const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
                     }}
                   >
                     <div
+                      className="cursorOne"
                       style={{
                         position: "absolute",
                         top: "-28px",
@@ -113,39 +113,73 @@ const Header = ({ setData, setIsLoading, showModal, setShowModal }) => {
                         backgroundColor: "#548BF4",
                       }}
                     >
+                      {/* <div>{values[index]}</div>
+
+                      {values[index]} */}
+                      {/* ici c'est l'arguement de mon slider une valeur de mon tableau values , si je veux ensuite
+                      afficher comme une etiquette sur mon slider, je fais ma div d'affichage en dessous, si je veuc que la valeur 
+                       soit sur les curseurs je mets ma div d'affichage après la div cursor two*/}
                       {values[index]}
+                      <div>{values[index]}</div>
                     </div>
                     <div
+                      className="cursorTwo"
                       style={{
                         height: "16px",
                         width: "5px",
                         backgroundColor: isDragged ? "#548BF4" : "#CCC",
                       }}
                     />
+                    {/* ici je mets ce qui s'affiche sur les cursors */}
+                    <div>{values[index]}</div>
                   </div>
                 )}
               />
             </div>
           </div>
           <div className="buttonsContainer">
-            <div className="signUpLogIn">
-              <button id="signUp" onClick={() => navigate("/signup")}>
-                S'inscire
-              </button>
+            {token ? (
               <button
-                id="logIn"
                 onClick={() => {
-                  setShowModal(!showModal);
+                  console.log("token avant suppr:", token);
+                  handleToken(null);
+                  console.log("token après suppr:", token);
                 }}
               >
-                Se connecter
+                Se déconnecter
               </button>
-            </div>
-            <button className="sellArticles">Vends tes articles</button>
+            ) : (
+              <div className="signUpLogIn">
+                <button id="signUp" onClick={() => navigate("/signup")}>
+                  S'inscire
+                </button>
+
+                <button
+                  id="logIn"
+                  onClick={() => {
+                    setShowModal(!showModal);
+                  }}
+                >
+                  Se connecter
+                </button>
+              </div>
+            )}
+            <button
+              className="sellArticles"
+              onClick={() => navigate("/publish")}
+            >
+              Vends tes articles
+            </button>
           </div>
         </nav>
       </div>
-      {showModal && <Login showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && (
+        <Login
+          showModal={showModal}
+          setShowModal={setShowModal}
+          handleToken={handleToken}
+        />
+      )}
       ;
     </div>
   );

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import axios from "axios";
 import "./signup.css";
-const Signup = () => {
+const Signup = ({ handleToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -41,7 +40,11 @@ const Signup = () => {
       console.log("response axios: ", response);
       const token = response.data.token;
 
-      Cookies.set("token_signup", token, { expires: 60 });
+      if (token) {
+        handleToken(token);
+
+        navigate("/");
+      }
     } catch (error) {
       console.log(error.message);
     }
