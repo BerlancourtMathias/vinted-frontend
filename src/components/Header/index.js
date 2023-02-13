@@ -7,14 +7,7 @@ import axios from "axios";
 import { Range } from "react-range";
 import Login from "../Login/index";
 
-const Header = ({
-  setData,
-
-  showModal,
-  setShowModal,
-  handleToken,
-  token,
-}) => {
+const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [values, setValues] = useState([30, 50]);
@@ -172,7 +165,9 @@ const Header = ({
               )}
               <button
                 className="sellArticles"
-                onClick={() => navigate("/publish")}
+                onClick={() => {
+                  token ? navigate("/publish") : setShowModal(!showModal);
+                }}
               >
                 Vends tes articles
               </button>

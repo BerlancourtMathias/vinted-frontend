@@ -52,11 +52,27 @@ const App = () => {
           />
           <Route
             path="/signup"
-            element={<Signup handleToken={handleToken} />}
+            element={
+              <Signup
+                handleToken={handleToken}
+                token={token}
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
+            }
           />
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/offer/:id" element={<Offer />} />
-          <Route path="/publish" element={<Publish token={token} />} />
+          <Route
+            path="/publish"
+            element={
+              <Publish
+                token={token}
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </Router>

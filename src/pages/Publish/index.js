@@ -2,7 +2,7 @@ import "./publish.css";
 import { useState } from "react";
 import axios from "axios";
 
-const Publish = ({ token }) => {
+const Publish = ({ tokenshowModal, setShowModal, handleToken, token }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");

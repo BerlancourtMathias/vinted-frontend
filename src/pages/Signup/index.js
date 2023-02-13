@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import axios from "axios";
 import "./signup.css";
-const Signup = ({ handleToken }) => {
+import Login from "../../components/Login";
+const Signup = ({ showModal, setShowModal, handleToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -99,7 +101,7 @@ const Signup = ({ handleToken }) => {
           // accessKey="
           // "
         />
-        <span onClick={() => navigate("/login")}>
+        <span onClick={() => setShowModal(!showModal)}>
           Tu as déjà un compte ? connecte-toi!
         </span>
       </form>
