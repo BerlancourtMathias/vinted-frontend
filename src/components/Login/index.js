@@ -19,6 +19,7 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
   };
   const handleCloseModal = () => {
     setShowModal(!showModal);
+    navigate("/");
   };
 
   const handleSubmit = async (event) => {

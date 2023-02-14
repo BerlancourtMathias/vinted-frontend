@@ -139,9 +139,11 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
             <div className="buttonsContainer">
               {token ? (
                 <button
+                  className="signOutButton"
                   onClick={() => {
                     console.log("token avant suppr:", token);
                     handleToken(null);
+                    navigate("/");
                     console.log("token après suppr:", token);
                   }}
                 >

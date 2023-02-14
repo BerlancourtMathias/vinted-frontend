@@ -88,6 +88,17 @@ nav img {
   font-weight: bold;
   border-radius: 5px;
 }
+.signOutButton {
+  color: whitesmoke;
+  background-color: #eb6134;
+  height: 35px;
+  border: none;
+  padding: 0 8px;
+  width: 150px;
+  line-height: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 #signUp {
   flex: 1;
   border-top-right-radius: 0px;

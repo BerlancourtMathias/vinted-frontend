@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
 import "./offer.css";
+import { useNavigate } from "react-router-dom";
 
 const Offer = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,6 +42,7 @@ const Offer = () => {
           </div>
         );
       })}
+      <button onClick={() => navigate("/payment")}>Acheter</button>
     </div>
   );
 };

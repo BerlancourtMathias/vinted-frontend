@@ -2,7 +2,13 @@ import "./publish.css";
 import { useState } from "react";
 import axios from "axios";
 
-const Publish = ({ tokenshowModal, setShowModal, handleToken, token }) => {
+const Publish = ({
+  tokenshowModal,
+  setShowModal,
+  showModal,
+  handleToken,
+  token,
+}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -15,7 +21,7 @@ const Publish = ({ tokenshowModal, setShowModal, handleToken, token }) => {
 
   console.log("le token qui en props dans Publish", token);
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); //permet d'éviter de rafraichir la page quand on clique sur submit
 
     const formData = new FormData();
     formData.append("title", title);
@@ -47,16 +53,20 @@ const Publish = ({ tokenshowModal, setShowModal, handleToken, token }) => {
   return (
     <div className="publishContainer">
       <form className="publishForm" onSubmit={handleSubmit}>
-        <label>
-          Photo
+        <label className="fileUploadButton" htmlFor="file">
+          Upload une photo
           <input
+            id="file"
             name="picture"
             type="file"
+            style={{ display: "none" }}
             onChange={(event) => {
               const value = event.target.files[0];
               setPicture(value);
             }}
           />
+          {picture && <img src={URL.createObjectURL(picture)} alt="" />}
+          {/* permet de créer une url pour mon image et l'afficher dans mon form */}
         </label>
 
         <label>
