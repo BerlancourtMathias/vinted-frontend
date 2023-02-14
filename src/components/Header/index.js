@@ -26,10 +26,10 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?${query}`
         );
-        console.log(
-          "la query :",
-          `https://lereacteur-vinted-api.herokuapp.com/offers?${query}`
-        );
+        // console.log(
+        //   "la query :",
+        //   `https://lereacteur-vinted-api.herokuapp.com/offers?${query}`
+        // );
         setData(response.data);
         // setIsLoading(false);
         // console.log("response.data : ", response.data);
@@ -40,7 +40,6 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
     fetchData();
   }, [search, values, query, setData]); //j'ai ajouté query et setData au tab de dépendnace suite à un warning de react
 
-  console.log("values", values);
   return (
     <>
       <div className="headerContainer">
