@@ -2,7 +2,17 @@
   display: flex;
 }
 #closeModal {
-  background-color: red;
+  width: 40px;
+  height: 30px;
+  margin-left: 90%;
+  border: none;
+  background-color: whitesmoke;
+}
+#closeModal > img {
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  border-style: none;
 }
 .modal-overlay {
   position: fixed;
@@ -19,16 +29,16 @@
 }
 
 .modal-content {
-  background-color: cyan;
-  border: 1px solid #ccc;
+  background-color: whitesmoke;
+  border: 1px solid cyan;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100px;
-  width: 100px;
+  height: 600px;
+  width: 500px;
 }
 
 .loginModal {
@@ -51,7 +61,7 @@
   gap: 10px;
 }
 .loginModal form input {
-  width: 60%;
+  width: 300px;
   height: 36px;
   font-size: 16px;
   color: RGBA(var(--greyscale-level-2, 1));
@@ -63,9 +73,9 @@
 .loginModal input[type="submit"] {
   background-color: #017580;
   color: whitesmoke;
-  width: 17%;
+  width: 150px;
   padding: 0 8px;
-  height: 10%;
+  height: 30px;
   font-weight: bold;
   border-radius: 5px;
   border-style: none;

@@ -4,11 +4,13 @@ import { useEffect } from "react";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
 import OfferCard from "../../components/OfferCard/";
+import { useNavigate } from "react-router-dom";
 import "./home.css";
 // import { Range } from "react-range";
 
 const Home = ({ data, setData, isLoading, setIsLoading }) => {
   // const [values, setValues] = useState([30, 50]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +39,12 @@ const Home = ({ data, setData, isLoading, setIsLoading }) => {
         <div className="widgetContainer">
           <div className="widgetBlock">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button id="sellnow" name="sellNow" className="sellNowButoon">
+            <button
+              id="sellnow"
+              name="sellNow"
+              className="sellNowButon"
+              //Faire naviguer vers publish}
+            >
               Vends maintenant
             </button>
             <div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import close from "./close.png";
 import "./login.css";
 
 const Login = ({ showModal, setShowModal, handleToken }) => {
@@ -46,7 +47,7 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button id="closeModal" onClick={handleCloseModal}>
-          FERMER
+          <img src={close} alt="croix fermer modal" />
         </button>
         <div className="loginModal">
           <h2>Se connecter</h2>
