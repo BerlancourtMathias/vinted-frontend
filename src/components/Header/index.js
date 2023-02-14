@@ -66,7 +66,7 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
               <div className="sliderCointainer" style={{ width: "100%" }}>
                 <Range
                   min={0}
-                  max={100}
+                  max={1000}
                   values={values}
                   onChange={(values) => setValues(values)}
                   renderTrack={({ props, children }) => (
@@ -87,8 +87,8 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
                       {...props}
                       style={{
                         ...props.style,
-                        height: "42px",
-                        width: "42px",
+                        height: "20px",
+                        width: "40px",
                         borderRadius: "4px",
                         backgroundColor: "#FFF",
                         display: "flex",
@@ -110,6 +110,7 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
                           padding: "4px",
                           borderRadius: "4px",
                           backgroundColor: "#548BF4",
+                          display: "none",
                         }}
                       >
                         {/* <div>{values[index]}</div>
@@ -124,6 +125,7 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
                       <div
                         className="cursorTwo"
                         style={{
+                          display: "none",
                           height: "16px",
                           width: "5px",
                           backgroundColor: isDragged ? "#548BF4" : "#CCC",
@@ -141,10 +143,8 @@ const Header = ({ setData, showModal, setShowModal, handleToken, token }) => {
                 <button
                   className="signOutButton"
                   onClick={() => {
-                    console.log("token avant suppr:", token);
                     handleToken(null);
                     navigate("/");
-                    console.log("token après suppr:", token);
                   }}
                 >
                   Se déconnecter

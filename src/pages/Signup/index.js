@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./signup.css";
-import Login from "../../components/Login";
+
 const Signup = ({ showModal, setShowModal, handleToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -39,12 +38,9 @@ const Signup = ({ showModal, setShowModal, handleToken }) => {
           newsletter: newsletter,
         }
       );
-      console.log("response axios: ", response);
       const token = response.data.token;
-
       if (token) {
         handleToken(token);
-
         navigate("/");
       }
     } catch (error) {

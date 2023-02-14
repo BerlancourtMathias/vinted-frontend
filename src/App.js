@@ -12,7 +12,6 @@ import Offer from "./pages/Offer/Offer";
 import Signup from "./pages/Signup";
 import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
-import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   const [data, setData] = useState();
@@ -21,7 +20,7 @@ const App = () => {
   const [token, setToken] = useState(Cookies.get("token-vinted") || null);
   // const onPage = { home: false, offer: false, publish: false, signup: false };
   // je fais une variable Onpage
-  //que je fais passer à true si l'utilisateur est
+  // que je fais passer à true si l'utilisateur est
   //sur la page correspondant à la clé de mon objet
 
   const handleToken = (token) => {
@@ -69,21 +68,9 @@ const App = () => {
               />
             }
           />
-          {
-            <Route
-              path="/loginpage"
-              element={<LoginPage handleToken={handleToken} token={token} />}
-            />
-          }
           <Route
             path="/offer/:id"
-            element={
-              <Offer
-                token={token}
-                showModal={showModal}
-                setShowModal={setShowModal}
-              />
-            }
+            element={<Offer token={token} setShowModal={setShowModal} />}
           />
           <Route
             path="/publish"

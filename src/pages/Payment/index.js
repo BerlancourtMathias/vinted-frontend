@@ -1,24 +1,22 @@
 import "./payment.css";
-
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../../components/CheckoutForm";
 import { useLocation } from "react-router-dom";
-const stripePromise = loadStripe(
-  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
-);
+
+const stripePromise = loadStripe(process.env.REACT_APP_API_KEY);
 
 const Payment = () => {
   const location = useLocation();
-  const { title, price, username, id, image } = location.state;
+  const { title, price, username } = location.state;
+  const amount = price + 2.9;
 
-  console.log("LOCATION:", location);
   return (
     <div className="paymentContainer">
       <h2>Voici le récapitulatif de votre commande :</h2>
       <p>
-        <strong>{username} </strong> recevra votre paiement une fois l'article
-        reçu
+        <strong>{username} </strong> recevra votre paiement une fois son colis
+        envoyé 📦
       </p>
 
       <div className="paymentBody">
@@ -26,7 +24,7 @@ const Payment = () => {
         <p> Prix: {price.toFixed(2)}</p>
         <p>Frais de port : {(2.5).toFixed(2)} €</p>
         <p>Frais de protection acheteur : {(0.4).toFixed(2)} €</p>
-        <p> Total: {(price + 2.5 + 0.4).toFixed(2)}€</p>
+        <p> Total: {amount.toFixed(2)}€</p>
         <p>
           Il ne vous reste plus qu'une étape pour vous offrir{" "}
           <strong>{title} </strong>. vous allez payer{" "}
@@ -35,7 +33,7 @@ const Payment = () => {
         </p>
 
         <Elements stripe={stripePromise}>
-          <CheckoutForm title={title} price={price} />
+          <CheckoutForm title={title} amount={amount} username={username} />
         </Elements>
       </div>
     </div>

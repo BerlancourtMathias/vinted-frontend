@@ -20,7 +20,6 @@ const OfferCard = ({ offerInfos }) => {
           src={offerInfos.product_image.secure_url}
           alt="offer vizualisation"
         />
-
         <div className="productPrice">{offerInfos.product_price} €</div>
         <div className="productSize">
           {offerInfos.product_details.map((detail, index) => {

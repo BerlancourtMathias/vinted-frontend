@@ -8,6 +8,7 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLogginError] = useState("");
 
   const handleEmailchange = (event) => {
     const value = event.target.value;
@@ -33,16 +34,14 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
           password: password,
         }
       );
-      console.log("response axios Login: ", response);
       const token = response.data.token;
-      console.log("TOKEN à la modal LOGIN", token);
       if (token) {
+        setLogginError("");
         handleToken(token);
         handleCloseModal();
-        navigate("/");
       }
     } catch (error) {
-      console.log(error.message);
+      setLogginError(error.message);
     }
   };
   return (
@@ -67,12 +66,8 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
               value={password}
               onChange={handlePasswordChange}
             />
-            <input
-              type="submit"
-              value="Se connecter"
-              // accessKey="
-              // "
-            />
+            {loginError !== "" ? <div>Vos logins ne sont pas bons</div> : null}
+            <input type="submit" value="Se connecter" />
             <span onClick={() => navigate("/signup")}>
               Pas encore de compte ? inscris-toi!
             </span>
