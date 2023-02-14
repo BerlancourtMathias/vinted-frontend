@@ -12,13 +12,14 @@ import Offer from "./pages/Offer/Offer";
 import Signup from "./pages/Signup";
 import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [token, setToken] = useState(Cookies.get("token-vinted") || null);
-  const onPage = { home: false, offer: false, publish: false, signup: false };
+  // const onPage = { home: false, offer: false, publish: false, signup: false };
   // je fais une variable Onpage
   //que je fais passer à true si l'utilisateur est
   //sur la page correspondant à la clé de mon objet
@@ -52,6 +53,8 @@ const App = () => {
                 setData={setData}
                 setIsLoading={setIsLoading}
                 isLoading={isLoading}
+                token={token}
+                handleToken={handleToken}
               />
             }
           />
@@ -66,8 +69,22 @@ const App = () => {
               />
             }
           />
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/offer/:id" element={<Offer />} />
+          {
+            <Route
+              path="/loginpage"
+              element={<LoginPage handleToken={handleToken} token={token} />}
+            />
+          }
+          <Route
+            path="/offer/:id"
+            element={
+              <Offer
+                token={token}
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
+            }
+          />
           <Route
             path="/publish"
             element={

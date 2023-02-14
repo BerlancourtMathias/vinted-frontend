@@ -1,5 +1,6 @@
 import "./offercard.css";
 import { Link } from "react-router-dom";
+
 const OfferCard = ({ offerInfos }) => {
   return (
     <Link to={`offer/${offerInfos._id}`}>

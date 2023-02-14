@@ -5,7 +5,7 @@ import Spinner from "../../components/Spinner";
 import "./offer.css";
 import { useNavigate } from "react-router-dom";
 
-const Offer = () => {
+const Offer = (token) => {
   const navigate = useNavigate();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -31,18 +31,38 @@ const Offer = () => {
     <Spinner />
   ) : (
     <div className="offerContainer">
+      <h2>{data.product_name}</h2>
       <img src={data.product_image.secure_url} alt="product" />
-      <p>{data.product_price + " €"}</p>
+      <p style={{ color: "#07eb1e" }}>
+        <strong>{data.product_price + " €"}</strong>
+      </p>
       {data.product_details.map((detail, index) => {
         const key = Object.keys(detail)[0];
         return (
           <div key={index}>
             <span>{key}:</span>
-            <span style={{ color: "red" }}>{detail[key]}</span>
+            <span style={{ color: "#017580" }}>{detail[key]}</span>
           </div>
         );
       })}
-      <button onClick={() => navigate("/payment")}>Acheter</button>
+      {console.log("Le token sur offer", token)}
+      <button
+        onClick={() => {
+          token
+            ? navigate("/payment", {
+                state: {
+                  title: data.product_name,
+                  price: data.product_price,
+                  username: data.owner.account.username,
+                  image: data.product_image.secure_url,
+                  id: data._id,
+                },
+              })
+            : navigate("/loginpage/");
+        }}
+      >
+        Acheter
+      </button>
     </div>
   );
 };

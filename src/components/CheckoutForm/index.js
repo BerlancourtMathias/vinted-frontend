@@ -40,7 +40,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <>
+    <div className="checkOContainer">
       {!completed ? (
         <form onSubmit={handleSubmit}>
           <CardElement />
@@ -49,7 +49,7 @@ const CheckoutForm = () => {
       ) : (
         <span>💸💸💸 Le paiement est effectué 💸💸💸</span>
       )}
-    </>
+    </div>
   );
 };
 

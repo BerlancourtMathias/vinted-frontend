@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./home.css";
 // import { Range } from "react-range";
 
-const Home = ({ data, setData, isLoading, setIsLoading }) => {
+const Home = ({ token, data, setData, isLoading, setIsLoading }) => {
   // const [values, setValues] = useState([30, 50]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -61,7 +61,9 @@ const Home = ({ data, setData, isLoading, setIsLoading }) => {
             {data.offers.map((offer) => {
               // console.log("offers:", offers);
               // console.log("offer : ", offer);
-              return <OfferCard offerInfos={offer} key={offer._id} />;
+              return (
+                <OfferCard offerInfos={offer} key={offer._id} token={token} />
+              );
             })}
           </div>
         )}

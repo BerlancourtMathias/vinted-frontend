@@ -33,8 +33,9 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
           password: password,
         }
       );
-      console.log("response axios: ", response);
+      console.log("response axios Login: ", response);
       const token = response.data.token;
+      console.log("TOKEN à la modal LOGIN", token);
       if (token) {
         handleToken(token);
         handleCloseModal();

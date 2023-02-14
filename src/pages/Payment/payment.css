@@ -1,3 +1,18 @@
 .paymentContainer {
   padding-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.paymentBody {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.Element {
+  display: flex;
+  flex-direction: column;
 }

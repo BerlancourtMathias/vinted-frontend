@@ -2,10 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
-import "./login.css";
+import { useLocation } from "react-router-dom";
+import "./loginpage.css";
 
-const Login = () => {
+const LoginPage = ({ handleToken, token }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { id } = location.state;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,7 +35,9 @@ const Login = () => {
       console.log("response axios: ", response);
       const token = response.data.token;
 
-      Cookies.set("token_login", token, { expires: 60 });
+      if (token) {
+        navigate("/");
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -53,12 +58,7 @@ const Login = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-        <input
-          type="submit"
-          value="Se connecter"
-          // accessKey="
-          // "
-        />
+        <input type="submit" value="Se connecter" />
         <span onClick={() => navigate("/signup")}>
           Pas encore de compte ? inscris-toi!
         </span>
@@ -66,4 +66,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default LoginPage;
