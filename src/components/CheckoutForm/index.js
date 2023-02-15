@@ -27,7 +27,7 @@ const CheckoutForm = ({ title, amount, username }) => {
       console.log("STRIPE TOKEN :", stripeToken);
 
       // Requête vers API reacteur et envoi du token avec la variable stripToken déclarée lignes précédentes
-
+      debugger;
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
@@ -37,7 +37,7 @@ const CheckoutForm = ({ title, amount, username }) => {
         }
       );
       console.log("total=", amount);
-      console.log(response.data);
+      console.log("response data=", response.data);
       // Si la réponse du serveur est favorable, la transaction a eu lieu
       if (response.data.status === "succeeded") {
         setIsLoading(false);

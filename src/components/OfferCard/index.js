@@ -15,6 +15,7 @@ const OfferCard = ({ offerInfos }) => {
           )}
           <div id="ownerUserName">{offerInfos.owner.account.username}</div>
         </section>
+        <div id="titleOffer">{offerInfos.product_name}</div>
         <img
           id="productPicture"
           src={offerInfos.product_image.secure_url}

@@ -18,10 +18,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [token, setToken] = useState(Cookies.get("token-vinted") || null);
-  // const onPage = { home: false, offer: false, publish: false, signup: false };
-  // je fais une variable Onpage
-  // que je fais passer à true si l'utilisateur est
-  //sur la page correspondant à la clé de mon objet
 
   const handleToken = (token) => {
     if (token) {
