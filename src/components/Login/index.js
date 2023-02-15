@@ -66,9 +66,18 @@ const Login = ({ showModal, setShowModal, handleToken }) => {
               value={password}
               onChange={handlePasswordChange}
             />
-            {loginError !== "" ? <div>Vos logins ne sont pas bons</div> : null}
+            {loginError !== "" ? (
+              <div className="badPassword">
+                💡 Votre mot de passe ou adresse email est incorrecte
+              </div>
+            ) : null}
             <input type="submit" value="Se connecter" />
-            <span onClick={() => navigate("/signup")}>
+            <span
+              onClick={() => {
+                navigate("/signup");
+                setShowModal(!showModal);
+              }}
+            >
               Pas encore de compte ? inscris-toi!
             </span>
           </form>
